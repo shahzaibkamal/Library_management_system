@@ -1,0 +1,16 @@
+<!-- book_detail.html -->
+
+{% extends 'base.html' %}
+{% block content %}
+  <h1>{{ book.title }}</h1>
+  <p>Author: {{ book.author }}</p>
+  <!-- Other book details... -->
+  
+  <!-- Delete button -->
+  <form action="{% url 'delete_book' %}" method="post">
+    {% csrf_token %}
+    <input type="hidden" name="book_id" value="{{ book.id }}">
+    <button type="submit">Delete</button>
+  </form>
+  
+{% endblock %}
